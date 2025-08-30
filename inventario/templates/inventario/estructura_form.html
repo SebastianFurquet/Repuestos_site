@@ -1,0 +1,16 @@
+
+{% extends "inventario/base.html" %}
+
+{% block title %}Nueva estructura{% endblock %}
+
+{% block content %}
+    <h2>Nueva estructura</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Guardar</button>
+    </form>
+    
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'inventario/base.html' %}
+
+{% block title %} Estructuras {% endblock  %}
+
+
+{% block content %}
+    <form method="GET">
+        {{ form.q.label_tag }} {{ form.q }} 
+        <button type="submit">Buscar</button>
+    </form>
+
+    <p><a href="{% url 'estructura_create' %}"> + Nueva Estructura </a></p>
+
+    <table>
+        <!-- estos son los encabezados de la tabla -->
+        <thead> 
+            <tr>
+                <th>Marca</th><th>Modelo</th><th>Parte</th><th>Elemento</th><th>N° pieza</th><th>Precio</th>
+            </tr>
+        </thead>
+        <!-- Cuerpo de la tabla filas y columnas -->
+        <tbody>
+            {% for e in objetos %}
+                <tr>
+                    <td>{{ e.modelo.marca.nombre }}</td>
+                    <td>{{ e.modelo.descripcion }}</td>
+                    <td>{{ e.parte.nombre }}</td>
+                    <td>{{ e.elemento.nombre }}</td>
+                    <td>{{ e.nro_pieza|default:"-" }}</td>
+                    <td>{{ e.precio|default:"-" }}</td>
+                </tr>
+            {% empty %}
+                <tr><td colspan="6"> Sin resultados</td></tr>
+                
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock  %}
