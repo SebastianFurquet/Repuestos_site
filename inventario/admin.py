@@ -15,9 +15,9 @@ class MarcaAdmin(admin.ModelAdmin):
 
 @admin.register(Modelo)
 class ModeloAdmin(admin.ModelAdmin):
-    list_display = ("cod_modelo", "marca", "clase", "descripcion")
+    list_display = ("cod_modelo", "marca", "clase", "descripcion", "cod_veh")
     list_filter = ("marca", "clase")                
-    search_fields = ("cod_modelo", "descripcion")
+    search_fields = ("cod_modelo", "descripcion", "cod_veh")
 
 @admin.register(Parte)
 class ParteAdmin(admin.ModelAdmin):

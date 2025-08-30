@@ -17,8 +17,8 @@ def estructura_list(request):
         if q:
             qs = qs.filter(
                 Q(nro_pieza__icontains=q) |
-                Q(modelo__cod_modelo__icontains=q) |
-                Q(elemento__cod_elemento__icontains=q) |
+                Q(marca__nombre__icontains=q) |
+                Q(modelo__descripcion__icontains=q) |
                 Q(elemento__nombre__icontains=q)
             )
     qs = qs.order_by("modelo__marca__nombre", "modelo__descripcion", "parte__nombre", "elemento__nombre")

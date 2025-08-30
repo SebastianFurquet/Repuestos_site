@@ -65,7 +65,7 @@ class Parte(models.Model):
 # SAP_ELEMENTOS (granularidad debajo de Parte)
 
 class Elemento(models.Model):  
-    cod_elemento = models.CharField(max_length=20, primary_key=True)
+    cod_elemento = models.CharField(max_length=20)
     clase = models.ForeignKey(Clase, on_delete=models.PROTECT, related_name="elementos")
     parte = models.ForeignKey(Parte, on_delete=models.PROTECT, related_name="elementos")
     nombre = models.CharField(max_length=150)
