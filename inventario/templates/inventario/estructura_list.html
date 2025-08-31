@@ -1,16 +1,25 @@
 {% extends 'inventario/base.html' %}
 
-{% block title %} Estructuras {% endblock  %}
+{% block title %} Listado de Elementos {% endblock  %}
 
 
 {% block content %}
+
+<!-- BARRA DE BUSQUEDA-->
+
     <form method="GET">
         {{ form.q.label_tag }} {{ form.q }} 
         <button type="submit">Buscar</button>
     </form>
+    <br>
+    <p><a href="{% url 'estructura_create' %}"> Nueva Codificacion </a></p>
+    <br>
+    <br>
+<!--**************************************************************************-->
 
-    <p><a href="{% url 'estructura_create' %}"> + Nueva Estructura </a></p>
-
+<!-- TABLA-->
+    <h1>Listado de piezas</h1>
+    <br>
     <table class="table table-light table-striped">
         <!-- estos son los encabezados de la tabla -->
         <thead class="table-info"> 

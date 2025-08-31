@@ -1,16 +1,22 @@
 
 {% extends "inventario/base.html" %}
 
-{% block title %}Nueva estructura{% endblock %}
+{% block title %}Codificacion del Vehiculo{% endblock %}
 
 {% block content %}
-    <h2>Nueva estructura</h2>
 
-    <form method="post">
+<!--CODIFICACION DEL VEHICULO-->
+
+    <h2>Codificacion del Vehiculo</h2>
+    <br>
+    <br>
+
+    <form method="post" class="needs-validation" >
         {% csrf_token %}
-        {{ form.as_p }}
-
-        <button type="submit">Guardar</button>
+        <div class='mb-3'>
+            {{ form.as_p }}
+        </div>
+        <button type="submit"class="btn btn-primary">Guardar</button>
     </form>
     
 {% endblock %}
